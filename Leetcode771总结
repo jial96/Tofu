@@ -1,0 +1,50 @@
+# Description:
+ You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+
+ The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+ Example 1:
+
+ Input: J = "aA", S = "aAAbbbb"
+ Output: 3
+ Example 2:
+
+ Input: J = "z", S = "ZZ"
+ Output: 0
+ Note:
+
+ S and J will consist of letters and have length at most 50.
+ The characters in J are distinct.
+
+----------------------------------------------------
+# Most voted answer:
+
+public int numJewelsInStones(String J, String S) {
+    return S.replaceAll("[^" + J + "]", "").length();
+}
+
+----------------------------------------------------
+# Summary:
+1. Java replaceAll()方法
+方法：使用给定的参数 replacement 替换字符串所有匹配给定的正则表达式的子字符串。E.g:
+
+public class Test {
+    public static void main(String args[]) {
+        String Str = new String("www.google.com");
+
+        System.out.print("匹配成功返回值 :" );
+        System.out.println(Str.replaceAll("(.*)google(.*)", "runoob" ));
+        System.out.print("匹配失败返回值 :" );
+        System.out.println(Str.replaceAll("(.*)taobao(.*)", "runoob" ));
+    }
+}
+匹配成功返回值 :runoob
+匹配失败返回值 :www.google.com
+
+2. Java 正则表达式
+  - 正则表达式定义了字符串的模式。
+  - 正则表达式可以用来搜索、编辑或处理文本。
+  - 正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。
+  
+  [xyz]：字符集。匹配包含的任一字符。例如，"[abc]"匹配"plain"中的"a"。
+  [^xyz]：反向字符集。匹配未包含的任何字符。例如，"[^abc]"匹配"plain"中"p"，"l"，"i"，"n"。
